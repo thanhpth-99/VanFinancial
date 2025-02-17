@@ -1,0 +1,24 @@
+server:
+  port: 1688
+
+spring:
+  application:
+    name: Vanguard Financial
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/vanguard_financial
+    username: postgres
+    password: root123
+    hikari:
+      schema: main
+  thymeleaf:
+    prefix: classpath:/templates/mail-templates/
+    suffix: .html
+    mode: HTML
+
+mybatis:
+  config-location: classpath:/static/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/static/mybatis/mapper/*.xml
+
+jwt:
+  signer-key: "gXNsKhvdcP2xd@0tfC9IxZjr8lbcqjUIB|hhdFgyD5kD1cyX4biZUD4yu6BOZOWlAKss/Z"

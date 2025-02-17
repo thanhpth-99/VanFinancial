@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="van.vanfinancial.mapper.InvalidatedTokenMapper">
+
+    <update id="insertValidatedToken">
+        UPDATE USER_ACCOUNTS
+        SET
+            REFRESH_TOKEN = #{refreshToken}
+            , EXPIRY_DATE = NOW() + INTERVAL '30 days'
+        WHERE
+            ID = #{id}::UUID
+    </update>
+
+    <update id="deleteValidatedToken">
+        UPDATE USER_ACCOUNTS
+        SET
+            REFRESH_TOKEN = NULL
+            , EXPIRY_DATE = NULL
+        WHERE
+            ID = #{id}::UUID
+    </update>
+
+    <select id="isValidatedTokenExists" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM USER_ACCOUNTS
+            WHERE ID = #{jwtId}::UUID AND REFRESH_TOKEN = #{refreshToken}
+        )
+    </select>
+</mapper>

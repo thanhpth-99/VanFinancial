@@ -1,0 +1,71 @@
+package van.vanfinancial.enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public enum ErrorCode {
+    UNCAUGHT_EXCEPTION(999, "uncaught exception"),
+    NHAN_VIEN_NOT_EXIST(1000, "nhan vien khong ton tai"),
+    NHAN_VIEN_EXISTED(1001, "nhan vien da ton tai"),
+    LIST_NHAN_VIEN_EMPTY(1002, "list nhan vien rong"),
+    LIST_BO_PHAN_EMPTY(1002, "list bo phan rong"),
+    LIST_PHONG_BAN_EMPTY(1002, "list phong ban rong"),
+    LIST_TUYEN_DUNG_EMPTY(1002,"LIST TUYEN DUNG RONG"),
+    LIST_HOP_DONG_EMPTY(1002,"LIST HOP DONG RONG"),
+    HOP_DONG_NOT_EXIST(1000,"HOP DONG KHONG TON TAI"),
+    TUYEN_DUNG_NOT_EXIST(1000,"TUYEN DUNG KHONG TON TAI"),
+    PHONG_BAN_NOT_EXIST(1000, "phong ban khong ton tai"),
+    CHUC_VU_NOT_EXIST(1000,"chuc vu khong ton tai"),
+    BO_PHAN_NOT_EXIST(1000, "bo phan khong ton tai"),
+    LIST_UNG_LUONG_EMPTY(1002, "list ung luon rong"),
+    UNG_LUONG_NOT_EXIST(1000, "ung luon khong ton tai"),
+    DATE_EXCEPTION(999, "date exception"),
+    USER_NOT_EXIST(1000, "Username not already exist"),
+    USER_EXISTED(1001, "user da ton tai"),
+    PASSWORD_INCORRECT(9999, "Password incorrect"),
+    JOSE_EXCEPTION(999, "Cannot sign JWT"),
+    BAD_SQL(500, "bad sql"),
+    LIST_USER_EMPTY(1002, "List user empty"),
+    ACCESS_DENIED(1003, "Access denied"),
+    UNAUTHENTICATED(1003, "unauthenticated"),
+    INVALID_TOKEN(1003, "invalid token"),
+    RESOURCE_NOT_FOUND(1004, "resource not found! Endpoints fail"),
+    ACCOUNT_HAS_BEEN_DISABLE(1003, "Account has been disable"),
+    MAIL_EXCEPTION(999, "mail exception"),
+    EMAIL_EXISTED(1001, "email existed"),
+    DON_YEU_CAU_NOT_EXIST(1000, "Don yeu cau not exist"),
+    DON_YEU_CAU_EXISTED(1001, "Don yeu cau existed"),
+    LIST_UNG_VIEN_EMPTY(1002, "list ung vien rong"),
+    FILE_UPLOAD_FAILED(999, "file upload failed"),
+    DU_UNG_VIEN_DAT_YEU_CAU(1111, "Ung vien dat yeu cau qua gioi han"),
+    UNG_VIEN_KHONG_TON_TAI(1003, "Ung vien khong ton tai"),
+    WIFI_NOT_VALID(1003, "connection not valid"),
+    QUAN_LY_NOT_EXIST(1000, "quan ly khong ton tai"),
+    PASSWORD_NOT_VALID(1000, "password not valid"),
+    OTP_NOT_VALID(1003, "otp not valid"),
+    OTP_EXPIRED(999, "otp expired"),
+    CUOC_HOP_NOT_EXIST(1000, "cuoc hop not exist"),
+    VI_TRI_TUYEN_DUNG_NOT_EXIST(1000,"VI TRI TUYEN DUNG KHONG TON TAI"),
+    VI_TRI_TUYEN_DUNG_KHONG_HOP_LE(1000,"VI TRI TUYEN DUNG KHONG HOP LE"),
+    MEETING_EXISTED(1001, "meeting existed"),
+    MEETING_NOT_EXISTED(1001, "meeting not existed"),
+    CCCD_EXISTED(1001, "cccd da ton tai"),
+    PHU_CAP_EXISTED(1001, "Phu cap ton tai"),
+    PHU_CAP_NOT_EXISTED(1000, "Phu cap khong ton tai"),
+    NHAN_VIEN_PHU_CAP_NOT_EXIST(1000, "Nhan vien phu cap khong ton tai"),
+    NHAN_VIEN_PHU_CAP_EXISTED(1001, "Nhan vien phu cap da ton tai"),
+    NGHI_PHEP_NAM_EXISTED(1001, "nghi phep nam existed"),
+    KHONG_DU_SO_NGAY_PHEP_NAM(1000, "Không đủ số ngày phép năm"),
+    NHAN_VIEN_VI_PHAM_NOT_EXIST(1000, "Nhan vien vi pham khong ton tai"),
+    NHAN_VIEN_VI_PHAM_EXISTED(1001, "Nhan vien vi pham da ton tai"),
+    VI_PHAM_NOT_EXIST(1000, "Vi pham khong ton tai"),
+    VI_PHAM_EXISTED(1001, "Vi pham da ton tai"),
+    CHAM_CONG_EXISTED(1001, "Nhân viên đã checkin"),
+    CHAM_CONG_NOT_EXIST(1001, "Nhân viên chưa checkin"),
+    ;
+
+    private final int status;
+    private final String message;
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="van.vanfinancial.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="van.vanfinancial.entity.User">
+        <id property="userId" column="ID"/>
+        <result property="userName" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="email" column="EMAIL"/>
+        <result property="status" column="STATUS"/>
+        <result property="roleName" column="ROLE_NAME"/>
+        <result property="name" column="NAME"/>
+        <result property="birthday" column="BIRTHDAY"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+        <result property="avatar" column="AVATAR"/>
+        <result property="gender" column="GENDER"/>
+        <result property="monthlyBudget" column="MONTHLY_BUDGET"/>
+        <result property="financialGoal" column="FINANCIAL_GOALS"/>
+
+        <association property="role" javaType="van.vanfinancial.entity.Role">
+            <id property="roleId" column="role_id"/>
+            <result property="roleName" column="role_name"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="UserRoleResultMap" type="van.vanfinancial.entity.User">
+        <id property="userId" column="id"/>
+        <result property="userName" column="username"/>
+        <result property="password" column="password"/>
+        <result property="status" column="enabled"/>
+    </resultMap>
+
+    <select id="findByUsername" resultMap="UserResultMap">
+        SELECT
+            I.ID
+            , I.USERNAME
+            , A.PASSWORD
+            , I.STATUS
+            , R.ID
+            , R.ROLE_NAME
+        FROM
+            USER_INFO I
+        LEFT JOIN
+            USER_ACCOUNTS A ON A.ID = I.ID
+        LEFT JOIN
+            ROLES R ON R.ID = A.ROLE_ID
+        WHERE
+            (I.USERNAME = #{userName} OR I.PHONE_NUMBER = #{userName} OR I.EMAIL = #{userName})
+            AND I.STATUS = TRUE
+    </select>
+
+</mapper>
